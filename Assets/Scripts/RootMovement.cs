@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class RootMovement : MonoBehaviour
 {
-	// [SerializeField]
-	// protected Rigidbody body;
-
 	[SerializeField]
-	protected float moveSpeedStart = 6f;
+	protected Rigidbody2D body;
 
 	[SerializeField]
 	protected float distanceToMouseMoveThreshold = 1f;
 
+	[SerializeField]
 	protected float moveSpeed;
 
 	protected Vector2 mousePosition;
 
 	void Awake()
 	{
-		moveSpeed = moveSpeedStart;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		UpdateMousePosition();
+	}
 
+	void FixedUpdate()
+	{
 		if (GetDistanceToMouse() < distanceToMouseMoveThreshold)
 		{
 			Move(moveSpeed * (GetDistanceToMouse() / distanceToMouseMoveThreshold));
@@ -44,8 +44,7 @@ public class RootMovement : MonoBehaviour
 
 	protected virtual void Move(float speed)
 	{
-		transform.up = GetDirectionToMouse();
-		transform.position += transform.up * speed * Time.deltaTime;
+		body.velocity = GetDirectionToMouse() * speed;
 	}
 
 	protected float GetDistanceToMouse()
@@ -55,6 +54,6 @@ public class RootMovement : MonoBehaviour
 
 	protected Vector3 GetDirectionToMouse()
 	{
-		return (Vector3)mousePosition - transform.position;
+		return ((Vector3)mousePosition - transform.position).normalized;
 	}
 }

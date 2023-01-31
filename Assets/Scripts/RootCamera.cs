@@ -8,9 +8,6 @@ public class RootCamera : MonoBehaviour
 	protected Root root;
 
 	[SerializeField]
-	protected float leadDistance = 7f;
-
-	[SerializeField]
 	protected float speed = 0.8f;
 
 	// Start is called before the first frame update
@@ -22,7 +19,7 @@ public class RootCamera : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Vector3 targetPosition = new Vector3(root.transform.position.x, root.transform.position.y, -10) + root.transform.up * leadDistance;
+		Vector3 targetPosition = new Vector3(root.transform.position.x, root.transform.position.y, -10);
 
 		transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * speed);
 	}
