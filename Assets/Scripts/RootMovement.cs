@@ -15,6 +15,8 @@ public class RootMovement : MonoBehaviour
 
 	protected Vector2 mousePosition;
 
+	protected bool moving;
+
 	void Awake()
 	{
 	}
@@ -23,10 +25,17 @@ public class RootMovement : MonoBehaviour
 	void Update()
 	{
 		UpdateMousePosition();
+		moving = Input.GetKey(KeyCode.Mouse0);
 	}
 
 	void FixedUpdate()
 	{
+		if (!moving)
+		{
+			body.velocity = Vector2.Lerp(body.velocity, Vector2.zero, Time.fixedDeltaTime * 8f);
+			return;
+		}
+
 		if (GetDistanceToMouse() < distanceToMouseMoveThreshold)
 		{
 			Move(moveSpeed * (GetDistanceToMouse() / distanceToMouseMoveThreshold));
