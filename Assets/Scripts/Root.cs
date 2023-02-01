@@ -13,7 +13,7 @@ public class Root : MonoBehaviour
 	}
 
 	[SerializeField]
-	protected float moveSpeed = 0.5f;
+	protected float moveDistance = 0.5f;
 
 	[SerializeField]
 	protected float moveInterval = 0.1f;
@@ -65,7 +65,7 @@ public class Root : MonoBehaviour
 			GameObject newSegment = Instantiate(segmentPrefab, transform.position, Quaternion.identity);
 			newSegment.transform.up = transform.up;
 
-			transform.position += transform.up * moveSpeed;
+			transform.position += transform.up * moveDistance;
 			segments.Add(newSegment);
 		}
 
