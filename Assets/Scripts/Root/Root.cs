@@ -79,7 +79,7 @@ public class Root : MonoBehaviour
 
 	protected void Grow(Vector2 direction)
 	{
-		body.velocity = direction * baseMoveSpeed;
+		body.velocity = direction * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
 
 		if (Vector2.Distance(transform.position, lastRecordedRootPosition) > rootRecordPositionInterval)
 		{
@@ -100,7 +100,7 @@ public class Root : MonoBehaviour
 
 		Vector3 mostRecentPosition = rootPositions.First.Value;
 
-		body.velocity = (mostRecentPosition - transform.position).normalized * baseMoveSpeed;
+		body.velocity = (mostRecentPosition - transform.position).normalized * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
 
 		if (rootRenderer.positionCount > 0 && Vector3.Distance(transform.position, mostRecentPosition) < rootRecordPositionInterval / 2f)
 		{
