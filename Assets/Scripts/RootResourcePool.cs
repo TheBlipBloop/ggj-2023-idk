@@ -24,7 +24,7 @@ public class RootResourcePool : MonoBehaviour
 		ClampAmount();
 	}
 
-	public float GetResources()
+	public float GetAmount()
 	{
 		return amount;
 	}

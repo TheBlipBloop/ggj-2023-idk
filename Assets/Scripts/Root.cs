@@ -143,7 +143,7 @@ public class Root : MonoBehaviour
 
 	public float GetNutrients()
 	{
-		return nutrientPool.GetResources();
+		return nutrientPool.GetAmount();
 	}
 
 	/*********************************************************************************************/
@@ -161,7 +161,7 @@ public class Root : MonoBehaviour
 
 	public float GetHealth()
 	{
-		return healthPool.GetResources();
+		return healthPool.GetAmount();
 	}
 
 	public bool IsAlive()
@@ -173,4 +173,14 @@ public class Root : MonoBehaviour
 	{
 		return !IsAlive();
 	}
+
+	/*********************************************************************************************/
+	/** Placeholder UI */
+
+	void OnGUI()
+	{
+		GUI.Label(new Rect(0, 0, 250f, 25f), "Health: " + healthPool.GetAmount());
+		GUI.Label(new Rect(0, 25f, 250f, 25f), "Nutrients: " + nutrientPool.GetAmount());
+	}
+
 }
