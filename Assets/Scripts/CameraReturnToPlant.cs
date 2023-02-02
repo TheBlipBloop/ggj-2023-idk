@@ -26,6 +26,10 @@ public class CameraReturnToPlant : MonoBehaviour
                 returnTimer -= Time.deltaTime;
             }
         }
+        else
+        {
+            this.gameObject.GetComponent<CameraRotater>().enabled = true;
+        }
     }
 
     public void moveToward(Vector3 targ)
@@ -33,7 +37,5 @@ public class CameraReturnToPlant : MonoBehaviour
         target = targ;
         distanceX = (target.x-this.transform.position.x)/secondsToReturn;
         distanceY = (target.y-this.transform.position.y )/secondsToReturn;
-        Debug.Log(distanceX);
-        Debug.Log(distanceY);
     }
 }
