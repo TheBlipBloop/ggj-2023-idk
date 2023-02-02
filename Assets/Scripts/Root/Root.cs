@@ -141,6 +141,11 @@ public class Root : MonoBehaviour
 	/*********************************************************************************************/
 	/** Nutrients */
 
+	public void AddNutrients(float amount)
+	{
+		nutrientPool.AddResources(amount);
+	}
+
 	public float GetNutrients()
 	{
 		return nutrientPool.GetAmount();
