@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField]
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	protected float nutrientValue = 1f;
+
+	private void OnCollisionEnter2D(Collision2D collider)
+	{
+		Root root = collider.gameObject.GetComponent<Root>();
+		if (root)
+		{
+			root.AddNutrients(nutrientValue);
+			Destroy(gameObject);
+		}
+	}
 }
