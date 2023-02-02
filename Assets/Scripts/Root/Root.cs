@@ -21,7 +21,10 @@ public class Root : MonoBehaviour
 	[Header("Nutrients")]
 
 	[SerializeField]
-	protected float nutrientUseWhileMoving = 1.0f;
+	protected float nutrientLosePerSecond = 0.3f;
+
+	[SerializeField]
+	protected float additionalNutrientUseWhileMoving = 0.1f;
 
 	[SerializeField]
 	protected float nutrientsRetractScale = 0.75f;
@@ -56,6 +59,8 @@ public class Root : MonoBehaviour
 		{
 			rootRenderer.SetPosition(rootRenderer.positionCount - 1, transform.position);
 		}
+
+		nutrientPool.RemoveResources(nutrientLosePerSecond * Time.deltaTime);
 	}
 
 	protected void UpdateMovement()
@@ -63,13 +68,13 @@ public class Root : MonoBehaviour
 		if (Input.GetKey(KeyCode.Mouse0) && nutrientPool.HasResources())
 		{
 			Grow(GetDirectionToMouse());
-			nutrientPool.RemoveResources(nutrientUseWhileMoving * Time.deltaTime);
+			nutrientPool.RemoveResources(additionalNutrientUseWhileMoving * Time.deltaTime);
 			return;
 		}
 		if (Input.GetKey(KeyCode.Mouse1) && GetRootLength() > 0)
 		{
 			UnGrow();
-			nutrientPool.AddResources(nutrientUseWhileMoving * nutrientsRetractScale * Time.deltaTime);
+			nutrientPool.AddResources(additionalNutrientUseWhileMoving * Time.deltaTime);
 			return;
 		}
 
