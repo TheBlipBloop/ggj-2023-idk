@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(Tilemap))]
 public class Map : MonoBehaviour
 {
 	[System.Serializable]
 	protected struct TileConfiguration
 	{
-		public TileBase type;
+		public string name;
+
+		public List<TileBase> tiles;
 
 		public float speedScalar;
 
@@ -44,7 +45,7 @@ public class Map : MonoBehaviour
 	{
 		for (int i = 0; i < mapInstance.tileConfigs.Length; i++)
 		{
-			if (mapInstance.tileConfigs[i].type == tile)
+			if (mapInstance.tileConfigs[i].tiles.Contains(tile))
 			{
 				return mapInstance.tileConfigs[i];
 			}
