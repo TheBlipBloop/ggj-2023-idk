@@ -18,6 +18,22 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected float rootRecordPositionInterval = 0.25f;
 
+	[Header("Nutrients")]
+
+	[SerializeField]
+	protected float nutrientUseWhileMoving = 1.0f;
+
+	[SerializeField]
+	protected float nutrientsRetractScale = 0.75f;
+
+	[SerializeField]
+	protected RootResourcePool nutrientPool;
+
+	[Header("Health")]
+
+	[SerializeField]
+	protected RootResourcePool healthPool;
+
 	protected LinkedList<Vector2> rootPositions = new LinkedList<Vector2>();
 
 	protected Vector2 mousePosition;
@@ -44,14 +60,16 @@ public class Root : MonoBehaviour
 
 	protected void UpdateMovement()
 	{
-		if (Input.GetKey(KeyCode.Mouse0))
+		if (Input.GetKey(KeyCode.Mouse0) && nutrientPool.HasResources())
 		{
 			Grow(GetDirectionToMouse());
+			nutrientPool.RemoveResources(nutrientUseWhileMoving * Time.deltaTime);
 			return;
 		}
-		if (Input.GetKey(KeyCode.Mouse1))
+		if (Input.GetKey(KeyCode.Mouse1) && GetRootLength() > 0)
 		{
 			UnGrow();
+			nutrientPool.AddResources(nutrientUseWhileMoving * nutrientsRetractScale * Time.deltaTime);
 			return;
 		}
 
@@ -91,6 +109,20 @@ public class Root : MonoBehaviour
 		}
 	}
 
+	public float GetRootLength()
+	{
+		float totalLength = 0;
+		LinkedListNode<Vector2> node = rootPositions.First;
+
+		while (node.Next != null)
+		{
+			totalLength += Vector2.Distance(node.Value, node.Next.Value);
+			node = node.Next;
+		}
+
+		return totalLength;
+	}
+
 	private void UpdateMousePosition()
 	{
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -104,5 +136,41 @@ public class Root : MonoBehaviour
 	protected Vector3 GetDirectionToMouse()
 	{
 		return ((Vector3)mousePosition - transform.position).normalized;
+	}
+
+	/*********************************************************************************************/
+	/** Nutrients */
+
+	public float GetNutrients()
+	{
+		return nutrientPool.GetResources();
+	}
+
+	/*********************************************************************************************/
+	/** Health */
+
+	public void Damage(float damage)
+	{
+		healthPool.RemoveResources(damage);
+	}
+
+	public void Heal(float health)
+	{
+		healthPool.AddResources(health);
+	}
+
+	public float GetHealth()
+	{
+		return healthPool.GetResources();
+	}
+
+	public bool IsAlive()
+	{
+		return healthPool.HasResources();
+	}
+
+	public bool IsDead()
+	{
+		return !IsAlive();
 	}
 }
