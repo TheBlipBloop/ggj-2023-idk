@@ -35,6 +35,12 @@ public class Map : MonoBehaviour
 
 	public static float GetSpeedScalar(Vector3 atPosition)
 	{
+		if(!mapInstance || mapInstance.tilemap)
+        {
+			return 1f;
+        }
+
+
 		Vector3Int positionInt = Vector3Int.FloorToInt(atPosition);
 		TileConfiguration? config = GetConfigurationForTile(mapInstance.tilemap.GetTile(positionInt));
 
