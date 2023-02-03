@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraRotater : MonoBehaviour
 {
     public float rotateSpeed;
+    public GameObject levelSelectButton;
     private float time;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class CameraRotater : MonoBehaviour
         {
             this.transform.Rotate(new Vector3(0, 0, rotateSpeed * Time.deltaTime));
             time -= Time.deltaTime;
+        }
+        else
+        {
+            levelSelectButton.SetActive(true);
+            this.enabled = false;
         }
     }
 }
