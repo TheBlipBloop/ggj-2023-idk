@@ -9,6 +9,7 @@ public class SceneChanger : MonoBehaviour
 {
     public Button button;
     public TextMeshProUGUI text;
+    private bool isEnabled = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,19 @@ public class SceneChanger : MonoBehaviour
 
     void changeScene()
     {
-        SceneManager.LoadScene(text.text);
+        if(isEnabled)
+        {
+            SceneManager.LoadScene(text.text);
+        }      
+    }
+
+   public void disable()
+    {
+        isEnabled = false;
+    }
+
+    public void enable()
+    {
+        isEnabled=true;
     }
 }

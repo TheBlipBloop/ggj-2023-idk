@@ -6,6 +6,7 @@ public class WaterCollision : MonoBehaviour
 {
     public GameObject root;
     public Camera mainCam;
+    public int curLevel;
     private Vector3 startTrans;
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,6 @@ public class WaterCollision : MonoBehaviour
         mainCam.GetComponent<RootCamera>().enabled = false;
         mainCam.GetComponent<CameraReturnToPlant>().enabled = true;
         mainCam.GetComponent<CameraReturnToPlant>().moveToward(startTrans);
+        PlayerPrefs.SetInt("Level " + (curLevel + 1), 1);
     }
 }
