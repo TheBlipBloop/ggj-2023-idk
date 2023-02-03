@@ -180,6 +180,36 @@ public class Root : MonoBehaviour
 	}
 
 	/*********************************************************************************************/
+	/** Root Positions */
+
+	public float GetSegmentDistance()
+	{
+		return rootRecordPositionInterval;
+	}
+
+	public int GetRootPositionsNoAlloc(ref Vector2[] positions, float maxDistance = -1)
+	{
+		LinkedListNode<Vector2> node = rootPositions.First;
+		Vector2 referencePosition = transform.position;
+		int index = 0;
+
+		while (node.Next != null && index < positions.Length)
+		{
+			if (maxDistance > 0 && (node.Value - referencePosition).sqrMagnitude > maxDistance * maxDistance)
+			{
+				node = node.Next;
+				continue;
+			}
+
+			positions[index] = node.Value;
+			index++;
+			node = node.Next;
+		}
+
+		return index;
+	}
+
+	/*********************************************************************************************/
 	/** Placeholder UI */
 
 	void OnGUI()
