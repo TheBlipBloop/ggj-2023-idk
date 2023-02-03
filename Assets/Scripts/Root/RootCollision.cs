@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RootCollision : MonoBehaviour
 {
+	public event OnCollisionStay onCollisionStay;
+
 	[SerializeField]
 	protected Root root;
 
@@ -12,6 +14,9 @@ public class RootCollision : MonoBehaviour
 
 	[SerializeField]
 	protected int collisionSegmentInterval = 5;
+
+	[SerializeField]
+	protected int maxCollisionEventsPerFrame = 3;
 
 	[SerializeField]
 	protected int maxCollisionSegments = 256;
@@ -26,6 +31,7 @@ public class RootCollision : MonoBehaviour
 
 	protected int collisionPositionsLength = 0;
 
+
 	void Awake()
 	{
 		collisionPositions = new Vector2[maxCollisionSegments];
@@ -36,6 +42,7 @@ public class RootCollision : MonoBehaviour
 	{
 		collisionPositionsLength = root.GetRootPositionsNoAlloc(ref collisionPositions, maxCollisionDistance);
 
+		int collisionEventsGenerated = 0;
 		for (int i = collisionPositionsLength - 1; i >= collisionSegmentInterval; i -= collisionSegmentInterval)
 		{
 			Vector2 start = collisionPositions[i];
@@ -48,10 +55,20 @@ public class RootCollision : MonoBehaviour
 			}
 
 			RaycastHit2D hit = Physics2D.CircleCast(start, collisionThickness, end - start, dist);
+			if (hit.collider)
+			{
+				onCollisionStay?.Invoke(root, this, hit);
+				collisionEventsGenerated++;
+			}
+
+			if (collisionEventsGenerated >= maxCollisionEventsPerFrame)
+			{
+				break;
+			}
 
 			if (debugCollision)
 			{
-				Color debugColor = Color.black;
+				Color debugColor = Color.yellow;
 
 				if (hit.collider)
 				{
