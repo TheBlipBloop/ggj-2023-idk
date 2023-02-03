@@ -7,7 +7,7 @@ public class RootCollisionTest : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		rootCollision.onCollisionStay += OnTouchRoot;
+		// rootCollision.onCollisionStay += OnTouchRoot;
 	}
 
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class RootCollisionTest : MonoBehaviour
 		}
 
 		Debug.Log("Touched Root!");
-		rootCollision.onCollisionStay -= OnTouchRoot;
+		// rootCollision.onCollisionStay -= OnTouchRoot;
 		Destroy(gameObject);
 	}
 }

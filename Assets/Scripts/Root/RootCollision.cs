@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RootCollision : MonoBehaviour
 {
-	public event OnCollisionStay onCollisionStay;
-
 	[SerializeField]
 	protected Root root;
+
+	[SerializeField]
+	protected LayerMask collisionLayers;
 
 	[SerializeField]
 	protected float maxCollisionDistance = 5f;
@@ -54,10 +55,10 @@ public class RootCollision : MonoBehaviour
 				continue;
 			}
 
-			RaycastHit2D hit = Physics2D.CircleCast(start, collisionThickness, end - start, dist);
+			RaycastHit2D hit = Physics2D.CircleCast(start, collisionThickness, end - start, dist, collisionLayers.value);
 			if (hit.collider)
 			{
-				onCollisionStay?.Invoke(root, this, hit);
+				root.OnCollideWith(hit);
 				collisionEventsGenerated++;
 			}
 

@@ -604,10 +604,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 8527525119466467567}
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
   maxCollisionDistance: 10
   collisionSegmentInterval: 5
+  maxCollisionEventsPerFrame: 3
   maxCollisionSegments: 256
-  collisionThickness: 0.5
+  collisionThickness: 0.3
   debugCollision: 1
 --- !u!50 &8527525119466467565
 Rigidbody2D:
