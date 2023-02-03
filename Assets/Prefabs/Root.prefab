@@ -150,8 +150,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.5283019, g: 0.38861576, b: 0.3762905, a: 1}
-      key1: {r: 0.5283019, g: 0.38861576, b: 0.3762905, a: 1}
+      key0: {r: 0.19174972, g: 0.2924528, b: 0.20232324, a: 1}
+      key1: {r: 0.19174972, g: 0.2924528, b: 0.20232324, a: 1}
       key2: {r: 0.28235295, g: 0.54509807, b: 0.28627452, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -530,8 +530,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.27450982, g: 0.14117648, b: 0.12941177, a: 1}
-      key1: {r: 0.27450982, g: 0.14117648, b: 0.12941177, a: 1}
+      key0: {r: 0.6932379, g: 0.9433962, b: 0.5918476, a: 1}
+      key1: {r: 0.6932379, g: 0.9433962, b: 0.5918476, a: 1}
       key2: {r: 0.28235295, g: 0.54509807, b: 0.28627452, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -582,8 +582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootRenderer: {fileID: 8527525119123369750}
-  thickness: 1
-  thicknessPulseMagnitude: 0.2
+  thickness: 0.3
+  thicknessPulseMagnitude: 0.1
   thicknessPulseSpeed: 5
 --- !u!1 &8527525119466467554
 GameObject:
@@ -622,7 +622,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
