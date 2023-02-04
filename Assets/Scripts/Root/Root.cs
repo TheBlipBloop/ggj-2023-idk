@@ -353,6 +353,11 @@ public class Root : MonoBehaviour
 	// Called every frame while something is colliding with this root
 	public virtual void OnCollideWith(RaycastHit2D collision)
 	{
+		WormCollision worm = collision.collider.GetComponent<WormCollision>();
+		if (worm != null)
+		{
+			Damage(10 * Time.deltaTime);
+		}
 	}
 	/*********************************************************************************************/
 	/** Placeholder UI */

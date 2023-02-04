@@ -19,7 +19,8 @@ public class WormMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(currentDirection * speed * Time.deltaTime);
+        this.transform.Translate(currentDirection * speed * Time.deltaTime, Space.World);
+        this.transform.Translate(new Vector3(0,0, -this.transform.position.z), Space.World);
         if(Mathf.Abs(this.transform.position.x-points[curTargIndex].position.x) < 0.25)
         {
             if(Mathf.Abs(this.transform.position.x - points[curTargIndex].position.x) < 0.25)
