@@ -6,6 +6,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Root : MonoBehaviour
 {
+	[System.Serializable]
+	public struct PowerupEffect
+	{
+		public PowerupType type;
+
+		public float endTime;
+
+		public PowerupEffect(PowerupType inType, float inEndTime)
+		{
+			type = inType;
+			endTime = inEndTime;
+		}
+	}
+
 	[SerializeField]
 	protected Rigidbody2D body;
 
@@ -42,12 +56,10 @@ public class Root : MonoBehaviour
 	[Header("Powerups")]
 
 	[SerializeField]
-	protected PowerupType activePowerup = PowerupType.None;
+	protected List<PowerupEffect> activePowerups = new List<PowerupEffect>(4);
 
 	[SerializeField]
 	protected GameObject drill;
-
-	protected float powerupEndTime = float.NegativeInfinity;
 
 	protected Vector2 mousePosition;
 
@@ -65,6 +77,7 @@ public class Root : MonoBehaviour
 	void Update()
 	{
 		UpdateMousePosition();
+		UpdatePowerups();
 		UpdateMovement();
 
 		if (rootRenderer.positionCount > 0)
@@ -75,10 +88,6 @@ public class Root : MonoBehaviour
 		// Ambient nutrient loss
 		nutrientPool.RemoveResources(nutrientLosePerSecond * Time.deltaTime);
 
-		if (activePowerup != PowerupType.None && Time.time >= powerupEndTime)
-		{
-			CancelPowerup();
-		}
 
 		// Shitty hacky I dont want to talk about it fuck you
 		Vector2 direction = body.velocity.normalized;
@@ -214,30 +223,33 @@ public class Root : MonoBehaviour
 
 	protected void UpdatePowerups()
 	{
-
+		for (int i = 0; i < activePowerups.Count; i++)
+		{
+			if (Time.time >= activePowerups[i].endTime)
+			{
+				CancelPowerup(activePowerups[i]);
+			}
+		}
 	}
 
 	public void ApplyPowerup(PowerupType powerup, float duration)
 	{
-		if (powerup != PowerupType.None)
+		int find = FindPowerup(powerup);
+		if (find != -1)
 		{
-			CancelPowerup();
+			activePowerups[find] = new PowerupEffect(powerup, Time.time + duration);
+			return;
 		}
 
-		activePowerup = powerup;
-		powerupEndTime = Time.time + duration;
+		activePowerups.Add(new PowerupEffect(powerup, Time.time + duration));
 
 		OnPowerupActivated(powerup);
 	}
 
-	public void CancelPowerup()
+	public void CancelPowerup(PowerupEffect powerup)
 	{
-		PowerupType lastPowerup = activePowerup;
-
-		activePowerup = PowerupType.None;
-		powerupEndTime = float.NegativeInfinity;
-
-		OnPowerupDeactivated(lastPowerup);
+		activePowerups.Remove(powerup);
+		OnPowerupDeactivated(powerup.type);
 	}
 
 	protected void OnPowerupActivated(PowerupType powerup)
@@ -265,6 +277,18 @@ public class Root : MonoBehaviour
 		}
 	}
 
+	protected int FindPowerup(PowerupType type)
+	{
+		for (int i = 0; i < activePowerups.Count; i++)
+		{
+			if (activePowerups[i].type == type)
+			{
+				return i;
+			}
+		}
+
+		return -1;
+	}
 
 	/*********************************************************************************************/
 	/** Root Positions */
