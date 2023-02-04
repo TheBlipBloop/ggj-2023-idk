@@ -11,6 +11,8 @@ public class RootRenderer : MonoBehaviour
 	[SerializeField]
 	protected float thickness = 1;
 
+	private float smoothedThickness = 1;
+
 	[SerializeField]
 	protected float thicknessPulseMagnitude = 0.2f;
 
@@ -20,12 +22,18 @@ public class RootRenderer : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		smoothedThickness = thickness;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		rootRenderer.widthMultiplier = thickness + Mathf.Sin(Time.time / thicknessPulseSpeed * Mathf.PI) * thicknessPulseMagnitude;
+		smoothedThickness = Mathf.Lerp(smoothedThickness, thickness, Time.deltaTime);
+		rootRenderer.widthMultiplier = smoothedThickness + Mathf.Sin(Time.time / thicknessPulseSpeed * Mathf.PI) * thicknessPulseMagnitude;
+	}
+
+	public void SetThickness(float newThickness)
+	{
+		thickness = newThickness;
 	}
 }
