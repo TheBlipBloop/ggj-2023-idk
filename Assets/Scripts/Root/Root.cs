@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -75,7 +76,6 @@ public class Root : MonoBehaviour
 
 	protected float invincibilityDeflectDuration = 3f;
 
-
 	protected Vector2 mousePosition;
 
 	private Vector2 lastRecordedRootPosition;
@@ -92,6 +92,17 @@ public class Root : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+		}
+
+		// hacky bad
+		if (IsDead())
+		{
+			return;
+		}
+
 		UpdateMousePosition();
 		UpdatePowerups();
 		UpdateMovement();
@@ -111,6 +122,8 @@ public class Root : MonoBehaviour
 		{
 			drill.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f);
 		}
+
+
 	}
 
 	protected void UpdateMovement()
@@ -226,7 +239,7 @@ public class Root : MonoBehaviour
 
 	public bool IsAlive()
 	{
-		return healthPool.HasResources();
+		return healthPool.HasResources() && nutrientPool.HasResources();
 	}
 
 	public bool IsDead()
