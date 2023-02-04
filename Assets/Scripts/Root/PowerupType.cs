@@ -2,5 +2,6 @@ public enum PowerupType
 {
 	Speed,
 	Drill,
-	Shrink
+	Shrink,
+	Invincibility
 }
