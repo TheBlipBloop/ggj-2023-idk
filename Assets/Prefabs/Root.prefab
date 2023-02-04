@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 8527525119123369750}
   outline: {fileID: 714271039}
-  outlineWidth: 0.3
+  outlineWidth: 0.5
 --- !u!1 &880997833
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,12 +523,12 @@ LineRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.39622498
-        inSlope: -11.542184
-        outSlope: -11.542184
+        value: 0
+        inSlope: -33.023106
+        outSlope: -33.023106
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.15524219
+        inWeight: 0.111009166
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootRenderer: {fileID: 8527525119123369750}
-  thickness: 0.3
+  thickness: 0.6
   thicknessPulseMagnitude: 0.1
   thicknessPulseSpeed: 5
 --- !u!1 &8527525119466467554
@@ -628,7 +628,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
@@ -651,7 +651,7 @@ MonoBehaviour:
   nutrientsRetractScale: 0.75
   nutrientPool: {fileID: 880997835}
   healthPool: {fileID: 1526377720}
-  activePowerup: 0
+  activePowerups: []
   drill: {fileID: 8527525118267618867}
 --- !u!114 &1135940577
 MonoBehaviour:
