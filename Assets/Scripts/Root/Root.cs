@@ -73,6 +73,8 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected float shrinkPowerupThickness = 0.1f;
 
+	protected float invincibilityDeflectDuration = 3f;
+
 
 	protected Vector2 mousePosition;
 
@@ -353,8 +355,16 @@ public class Root : MonoBehaviour
 	// Called every frame while something is colliding with this root
 	public virtual void OnCollideWith(RaycastHit2D collision)
 	{
-		WormCollision worm = collision.collider.GetComponent<WormCollision>();
-		if (worm != null)
+		WormMovement worm = collision.collider.GetComponent<WormMovement>();
+		WormCollision wormCol = collision.collider.GetComponent<WormCollision>();
+		bool invincible = IsInvincible();
+
+		if (invincible)
+		{
+			worm.Deflect(collision.point, invincibilityDeflectDuration);
+		}
+
+		if (wormCol != null && !invincible)
 		{
 			Damage(10 * Time.deltaTime);
 		}
