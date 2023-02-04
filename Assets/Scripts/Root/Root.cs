@@ -53,6 +53,8 @@ public class Root : MonoBehaviour
 
 	private Vector2 lastRecordedRootPosition;
 
+	private float originalMoveSpeed;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -225,6 +227,11 @@ public class Root : MonoBehaviour
 		{
 			drill.SetActive(true);
 		}
+		if (powerup == PowerupType.Speed)
+		{
+			originalMoveSpeed = baseMoveSpeed;
+			baseMoveSpeed *= 2f;
+		}
 	}
 
 	public void OnPowerupDeactivated(PowerupType powerup)
@@ -232,6 +239,10 @@ public class Root : MonoBehaviour
 		if (powerup == PowerupType.Drill)
 		{
 			drill.SetActive(false);
+		}
+		if (powerup == PowerupType.Speed)
+		{
+			baseMoveSpeed = originalMoveSpeed;
 		}
 	}
 
