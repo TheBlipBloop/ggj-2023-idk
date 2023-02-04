@@ -586,8 +586,9 @@ MonoBehaviour:
   body: {fileID: 8527525119466467565}
   rootRenderer: {fileID: 8527525119123369750}
   baseMoveSpeed: 6
-  rootRecordPositionInterval: 0.25
-  nutrientUseWhileMoving: 0
+  rootRecordPositionInterval: 0.2
+  nutrientLosePerSecond: 0.05
+  additionalNutrientUseWhileMoving: 0.1
   nutrientsRetractScale: 0.75
   nutrientPool: {fileID: 880997835}
   healthPool: {fileID: 1526377720}
