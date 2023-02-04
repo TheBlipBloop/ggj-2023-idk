@@ -24,10 +24,19 @@ public class Root : MonoBehaviour
 	protected Rigidbody2D body;
 
 	[SerializeField]
-	protected LineRenderer rootRenderer;
+	protected CircleCollider2D collider;
+
+	[SerializeField]
+	protected LineRenderer rootLineRenderer;
+
+	[SerializeField]
+	protected RootRenderer rootRenderer;
 
 	[SerializeField]
 	protected float baseMoveSpeed = 6;
+
+	[SerializeField]
+	protected float defaultThickness = 0.6f;
 
 	[SerializeField]
 	protected float rootRecordPositionInterval = 0.25f;
@@ -61,6 +70,10 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected GameObject drill;
 
+	[SerializeField]
+	protected float shrinkPowerupThickness = 0.1f;
+
+
 	protected Vector2 mousePosition;
 
 	private Vector2 lastRecordedRootPosition;
@@ -71,6 +84,7 @@ public class Root : MonoBehaviour
 	void Start()
 	{
 		rootPositions.AddFirst(transform.position);
+		ResetRootThickness();
 	}
 
 	// Update is called once per frame
@@ -80,9 +94,9 @@ public class Root : MonoBehaviour
 		UpdatePowerups();
 		UpdateMovement();
 
-		if (rootRenderer.positionCount > 0)
+		if (rootLineRenderer.positionCount > 0)
 		{
-			rootRenderer.SetPosition(rootRenderer.positionCount - 1, transform.position);
+			rootLineRenderer.SetPosition(rootLineRenderer.positionCount - 1, transform.position);
 		}
 
 		// Ambient nutrient loss
@@ -124,7 +138,7 @@ public class Root : MonoBehaviour
 		{
 			rootPositions.AddFirst(transform.position);
 
-			rootRenderer.positionCount++;
+			rootLineRenderer.positionCount++;
 
 			lastRecordedRootPosition = transform.position;
 		}
@@ -141,9 +155,9 @@ public class Root : MonoBehaviour
 
 		body.velocity = (mostRecentPosition - transform.position).normalized * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
 
-		if (rootRenderer.positionCount > 0 && Vector3.Distance(transform.position, mostRecentPosition) < rootRecordPositionInterval / 2f)
+		if (rootLineRenderer.positionCount > 0 && Vector3.Distance(transform.position, mostRecentPosition) < rootRecordPositionInterval / 2f)
 		{
-			rootRenderer.positionCount--;
+			rootLineRenderer.positionCount--;
 			rootPositions.RemoveFirst();
 		}
 	}
@@ -263,6 +277,10 @@ public class Root : MonoBehaviour
 			originalMoveSpeed = baseMoveSpeed;
 			baseMoveSpeed *= 2f;
 		}
+		if (powerup == PowerupType.Shrink)
+		{
+			SetRootThickness(shrinkPowerupThickness);
+		}
 	}
 
 	protected void OnPowerupDeactivated(PowerupType powerup)
@@ -274,6 +292,10 @@ public class Root : MonoBehaviour
 		if (powerup == PowerupType.Speed)
 		{
 			baseMoveSpeed = originalMoveSpeed;
+		}
+		if (powerup == PowerupType.Shrink)
+		{
+			ResetRootThickness();
 		}
 	}
 
@@ -336,4 +358,17 @@ public class Root : MonoBehaviour
 		GUI.Label(new Rect(0, 25f, 250f, 25f), "Nutrients: " + nutrientPool.GetAmount());
 	}
 
+	/*********************************************************************************************/
+	/** God-class I hardly knew her! */
+
+	protected void ResetRootThickness()
+	{
+		SetRootThickness(defaultThickness);
+	}
+
+	protected void SetRootThickness(float newThickness)
+	{
+		collider.radius = newThickness;
+		rootRenderer.SetThickness(newThickness);
+	}
 }

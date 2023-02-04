@@ -628,7 +628,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
@@ -643,8 +643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 8527525119466467565}
-  rootRenderer: {fileID: 8527525119123369750}
+  collider: {fileID: 8527525119466467564}
+  rootLineRenderer: {fileID: 8527525119123369750}
+  rootRenderer: {fileID: 8527525119123369751}
   baseMoveSpeed: 6
+  defaultThickness: 0.6
+  shrinkPowerupThickness: 0.1
   rootRecordPositionInterval: 0.25
   nutrientLosePerSecond: 0.05
   additionalNutrientUseWhileMoving: 0.1
