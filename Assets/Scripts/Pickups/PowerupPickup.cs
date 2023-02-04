@@ -7,8 +7,11 @@ public class PowerupPickup : Pickup
 	[SerializeField]
 	protected PowerupType powerup;
 
+	[SerializeField]
+	protected float powerupDuration = 15f;
+
 	protected override void CollectPickup(Root root)
 	{
-		// powerup = PowerupType
+		root.ApplyPowerup(powerup, powerupDuration);
 	}
 }

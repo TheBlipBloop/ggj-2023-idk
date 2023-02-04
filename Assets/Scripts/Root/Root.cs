@@ -44,6 +44,11 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected PowerupType activePowerup = PowerupType.None;
 
+	[SerializeField]
+	protected GameObject drill;
+
+	protected float powerupEndTime = float.NegativeInfinity;
+
 	protected Vector2 mousePosition;
 
 	private Vector2 lastRecordedRootPosition;
@@ -66,6 +71,11 @@ public class Root : MonoBehaviour
 		}
 
 		nutrientPool.RemoveResources(nutrientLosePerSecond * Time.deltaTime);
+
+		if (activePowerup != PowerupType.None && Time.time >= powerupEndTime)
+		{
+			OnPowerupDeactivated(activePowerup);
+		}
 	}
 
 	protected void UpdateMovement()
@@ -90,6 +100,7 @@ public class Root : MonoBehaviour
 	protected void Grow(Vector2 direction)
 	{
 		body.velocity = direction * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
+		body.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 		if (Vector2.Distance(transform.position, lastRecordedRootPosition) > rootRecordPositionInterval)
 		{
@@ -190,6 +201,42 @@ public class Root : MonoBehaviour
 	}
 
 	/*********************************************************************************************/
+	/** Powerups */
+
+	public void ApplyPowerup(PowerupType powerup, float duration)
+	{
+		activePowerup = powerup;
+		powerupEndTime = Time.time + duration;
+
+		OnPowerupActivated(powerup);
+	}
+
+	public void CanclePowerup()
+	{
+		PowerupType lastPowerup = activePowerup;
+		activePowerup = PowerupType.None;
+		powerupEndTime = float.NegativeInfinity;
+		OnPowerupDeactivated(lastPowerup);
+	}
+
+	public void OnPowerupActivated(PowerupType powerup)
+	{
+		if (powerup == PowerupType.Drill)
+		{
+			drill.SetActive(true);
+		}
+	}
+
+	public void OnPowerupDeactivated(PowerupType powerup)
+	{
+		if (powerup == PowerupType.Drill)
+		{
+			drill.SetActive(false);
+		}
+	}
+
+
+	/*********************************************************************************************/
 	/** Root Positions */
 
 	public float GetSegmentDistance()
@@ -218,6 +265,7 @@ public class Root : MonoBehaviour
 
 		return index;
 	}
+
 	/*********************************************************************************************/
 	/** Health */
 
