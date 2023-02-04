@@ -48,11 +48,65 @@ MonoBehaviour:
   tileConfigs:
   - name: Gravel
     tiles:
-    - {fileID: 11400000, guid: 6912e2529b43701df8dca059d668d62b, type: 2}
+    - {fileID: 11400000, guid: 07ee79ddecfce2a41a7a3effb64843c9, type: 2}
+    - {fileID: 11400000, guid: 72c018b353520914298dec0c75282f59, type: 2}
+    - {fileID: 11400000, guid: 65f9b3c0397b38c4581ae3c9b5ec52b4, type: 2}
+    - {fileID: 11400000, guid: bd447e47306c43b4f8a72b3c43121ab8, type: 2}
+    - {fileID: 11400000, guid: 7c326f02f682fe54da4c56f26f90341d, type: 2}
+    - {fileID: 11400000, guid: d886e965a15f614459dc6cdd73d06070, type: 2}
+    - {fileID: 11400000, guid: 98f06e39970957d4694f88297dea84e1, type: 2}
+    - {fileID: 11400000, guid: ee1d58d30e3d3b24f935a75d60392c6c, type: 2}
+    - {fileID: 11400000, guid: 891608a0988d95d4ca1cca6eabe9e216, type: 2}
+    - {fileID: 11400000, guid: 71513348317cb364fb8a76f2c84eda4f, type: 2}
+    - {fileID: 11400000, guid: 395c8a3067742aa4fb54aba1985eb41b, type: 2}
+    - {fileID: 11400000, guid: 978f7f487cc49284da8b1c3ccd4b766a, type: 2}
+    - {fileID: 11400000, guid: 29b0f4cd21495ad4593f1739522c845c, type: 2}
+    - {fileID: 11400000, guid: 86e47dd963da31643804d87662f518f0, type: 2}
+    - {fileID: 11400000, guid: 0a79eb8416410f44cabc8d7b867304d0, type: 2}
+    - {fileID: 11400000, guid: af6d52513749c114fa250db1689994e8, type: 2}
+    - {fileID: 11400000, guid: 2c85fb8ced19e89469301c50e154cdc2, type: 2}
+    - {fileID: 11400000, guid: f02271c749caf6049817ce63c79d735f, type: 2}
+    - {fileID: 11400000, guid: e274320c693c18e4a9c54084596debc3, type: 2}
+    - {fileID: 11400000, guid: e274320c693c18e4a9c54084596debc3, type: 2}
+    - {fileID: 11400000, guid: 9edc9a36963fb944586ae3e11e3e7c36, type: 2}
+    - {fileID: 11400000, guid: d8b50fde2f946f8488c0cf09d9c6ae7c, type: 2}
+    - {fileID: 11400000, guid: b0673b61ca017104c9e6166fb82f26cd, type: 2}
+    - {fileID: 11400000, guid: 2c33951ce571dd643a298b6c8d735e3d, type: 2}
+    - {fileID: 11400000, guid: 162cbbd7f5eb4776489347f24d38e363, type: 2}
+    - {fileID: 11400000, guid: e713a254542a8414ead1c301d2ab89ab, type: 2}
+    - {fileID: 11400000, guid: d1654f559054d86a5adf47f9155fd941, type: 2}
+    - {fileID: 11400000, guid: 602b2bc4ab35fc54d9363f5da5a9c0bc, type: 2}
+    - {fileID: 11400000, guid: 602b2bc4ab35fc54d9363f5da5a9c0bc, type: 2}
+    - {fileID: 11400000, guid: ee9a6020696be6686a147b5240c019eb, type: 2}
+    - {fileID: 11400000, guid: 075c35aedba88b481bf989bcb22c5b6f, type: 2}
+    - {fileID: 11400000, guid: b758fe73a30c53b44a864575b6874841, type: 2}
+    - {fileID: 11400000, guid: 3f2ba533926848671901cd1e4d1da636, type: 2}
+    - {fileID: 11400000, guid: 504f2c612acc21d40991e02cb8550e51, type: 2}
     speedScalar: 0.25
     damagePerSecond: 0
   - name: Sand
     tiles:
-    - {fileID: 11400000, guid: 53959360cfddb803f89abe07cec99f8a, type: 2}
+    - {fileID: 11400000, guid: cd858d37fda0c2e4cbd1879ad1364008, type: 2}
+    - {fileID: 11400000, guid: bf03a83b454d9b44d881efd1a5197593, type: 2}
+    - {fileID: 11400000, guid: 8366b817f3df49e41b6fcdda430b73c7, type: 2}
+    - {fileID: 11400000, guid: 393b9d36eb2c206dc8b51b7055732820, type: 2}
+    - {fileID: 11400000, guid: b78789b5845008844a4f1e60d04f3f1a, type: 2}
+    - {fileID: 11400000, guid: b78789b5845008844a4f1e60d04f3f1a, type: 2}
+    - {fileID: 11400000, guid: e2a0effabb3dc5a4783f46fbd3b20df8, type: 2}
+    - {fileID: 11400000, guid: 8dbd617913da53adcb7367c95cf2f11e, type: 2}
+    - {fileID: 11400000, guid: 7bd104a0c4259e54280b5dedd2787b13, type: 2}
+    - {fileID: 11400000, guid: 0fd4dccccde6699839874b94c3ef04b0, type: 2}
+    - {fileID: 11400000, guid: 7c204bca89c33d0498460b9dc7d86eff, type: 2}
+    - {fileID: 11400000, guid: 3a9c845b405fee438927fff29d567a7b, type: 2}
+    - {fileID: 11400000, guid: 0c8687741983e5f4b8cf5dd318150cb9, type: 2}
+    - {fileID: 11400000, guid: 602dc9488d1800b43859d5e1fdbb3a9c, type: 2}
+    - {fileID: 11400000, guid: 2746fc03a54c2dd44a073fe8f0e7c5a8, type: 2}
+    - {fileID: 11400000, guid: adb751601b81e9949ba3fdc23d5113c6, type: 2}
+    - {fileID: 11400000, guid: fa6abaf7a2f8b7a4887ada103fb5333d, type: 2}
+    - {fileID: 11400000, guid: ba0e46d16d55ab14fa5806cf54a34ddf, type: 2}
+    - {fileID: 11400000, guid: ab95af4495aaf5940911fa5b44866a70, type: 2}
+    - {fileID: 11400000, guid: 236f0af072aff5446af33939ca954a66, type: 2}
+    - {fileID: 11400000, guid: 236f0af072aff5446af33939ca954a66, type: 2}
+    - {fileID: 11400000, guid: 236f0af072aff5446af33939ca954a66, type: 2}
     speedScalar: 2
     damagePerSecond: 0
