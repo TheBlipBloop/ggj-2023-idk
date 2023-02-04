@@ -329,7 +329,14 @@ public class Root : MonoBehaviour
 		WormCollision worm = collision.collider.GetComponent<WormCollision>();
 		if (worm != null)
 		{
-			Damage(10 * Time.deltaTime);
+			if(FindPowerup(PowerupType.Drill) != -1)
+            {
+				worm.Die();
+            }
+            else
+            {
+				Damage(10 * Time.deltaTime);
+			}
 		}
 	}
 	/*********************************************************************************************/
