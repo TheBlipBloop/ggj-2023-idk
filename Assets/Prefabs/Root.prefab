@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e4943fa9ac8b5a0b67a3cac5da3744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  root: {fileID: 0}
 --- !u!61 &19387155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -523,12 +524,12 @@ LineRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
-        inSlope: -33.023106
-        outSlope: -33.023106
+        value: 0.4883728
+        inSlope: -7.1736917
+        outSlope: -7.1736917
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.111009166
+        inWeight: 0.31880146
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -628,7 +629,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
@@ -648,7 +649,6 @@ MonoBehaviour:
   rootRenderer: {fileID: 8527525119123369751}
   baseMoveSpeed: 6
   defaultThickness: 0.6
-  shrinkPowerupThickness: 0.1
   rootRecordPositionInterval: 0.25
   nutrientLosePerSecond: 0.05
   additionalNutrientUseWhileMoving: 0.1
@@ -657,6 +657,7 @@ MonoBehaviour:
   healthPool: {fileID: 1526377720}
   activePowerups: []
   drill: {fileID: 8527525118267618867}
+  shrinkPowerupThickness: 0.1
 --- !u!114 &1135940577
 MonoBehaviour:
   m_ObjectHideFlags: 0
