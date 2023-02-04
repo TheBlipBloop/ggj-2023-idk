@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class WormCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField]
+	protected TrailRenderer wormRenderer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	protected BoxCollider2D wormCollider;
+
+	// Start is called before the first frame update
+	void Start()
+	{
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		// wormCollider.transform.position = wormRenderer.bounds.center;
+		// wormCollider.size = wormRenderer.bounds.size;
+	}
 }
