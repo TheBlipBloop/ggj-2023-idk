@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-	[SerializeField]
-
-	protected float nutrientValue = 1f;
 
 	private void OnCollisionEnter2D(Collision2D collider)
 	{
 		Root root = collider.gameObject.GetComponent<Root>();
 		if (root)
 		{
-			root.AddNutrients(nutrientValue);
+			CollectPickup(root);
 			Destroy(gameObject);
 		}
+	}
+
+	protected virtual void CollectPickup(Root root)
+	{
+		// Implement me in a subclass!
 	}
 }
