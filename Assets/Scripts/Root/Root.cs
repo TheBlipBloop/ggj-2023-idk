@@ -72,11 +72,19 @@ public class Root : MonoBehaviour
 			rootRenderer.SetPosition(rootRenderer.positionCount - 1, transform.position);
 		}
 
+		// Ambient nutrient loss
 		nutrientPool.RemoveResources(nutrientLosePerSecond * Time.deltaTime);
 
 		if (activePowerup != PowerupType.None && Time.time >= powerupEndTime)
 		{
-			OnPowerupDeactivated(activePowerup);
+			CancelPowerup();
+		}
+
+		// Shitty hacky I dont want to talk about it fuck you
+		Vector2 direction = body.velocity.normalized;
+		if (body.velocity.sqrMagnitude > 0.1)
+		{
+			drill.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f);
 		}
 	}
 
@@ -102,7 +110,6 @@ public class Root : MonoBehaviour
 	protected void Grow(Vector2 direction)
 	{
 		body.velocity = direction * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
-		body.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 		if (Vector2.Distance(transform.position, lastRecordedRootPosition) > rootRecordPositionInterval)
 		{
@@ -205,23 +212,35 @@ public class Root : MonoBehaviour
 	/*********************************************************************************************/
 	/** Powerups */
 
+	protected void UpdatePowerups()
+	{
+
+	}
+
 	public void ApplyPowerup(PowerupType powerup, float duration)
 	{
+		if (powerup != PowerupType.None)
+		{
+			CancelPowerup();
+		}
+
 		activePowerup = powerup;
 		powerupEndTime = Time.time + duration;
 
 		OnPowerupActivated(powerup);
 	}
 
-	public void CanclePowerup()
+	public void CancelPowerup()
 	{
 		PowerupType lastPowerup = activePowerup;
+
 		activePowerup = PowerupType.None;
 		powerupEndTime = float.NegativeInfinity;
+
 		OnPowerupDeactivated(lastPowerup);
 	}
 
-	public void OnPowerupActivated(PowerupType powerup)
+	protected void OnPowerupActivated(PowerupType powerup)
 	{
 		if (powerup == PowerupType.Drill)
 		{
@@ -234,7 +253,7 @@ public class Root : MonoBehaviour
 		}
 	}
 
-	public void OnPowerupDeactivated(PowerupType powerup)
+	protected void OnPowerupDeactivated(PowerupType powerup)
 	{
 		if (powerup == PowerupType.Drill)
 		{
