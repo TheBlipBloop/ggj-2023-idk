@@ -185,6 +185,49 @@ public class Root : MonoBehaviour
 	}
 
 	/*********************************************************************************************/
+	/** Root Positions */
+
+	public float GetSegmentDistance()
+	{
+		return rootRecordPositionInterval;
+	}
+
+	public int GetRootPositionsNoAlloc(ref Vector2[] positions, float maxDistance = -1)
+	{
+		LinkedListNode<Vector2> node = rootPositions.First;
+		Vector2 referencePosition = transform.position;
+		int index = 0;
+
+		while (node.Next != null && index < positions.Length)
+		{
+			if (maxDistance > 0 && (node.Value - referencePosition).sqrMagnitude > maxDistance * maxDistance)
+			{
+				node = node.Next;
+				continue;
+			}
+
+			positions[index] = node.Value;
+			index++;
+			node = node.Next;
+		}
+
+		return index;
+	}
+	/*********************************************************************************************/
+	/** Health */
+
+	// Called every frame while something is colliding with this root
+	public virtual void OnCollideWith(RaycastHit2D collision)
+	{
+		// Testing behavior
+		if (collision.collider.gameObject == gameObject)
+		{
+			return;
+		}
+
+		Destroy(collision.collider.gameObject);
+	}
+	/*********************************************************************************************/
 	/** Placeholder UI */
 
 	void OnGUI()
