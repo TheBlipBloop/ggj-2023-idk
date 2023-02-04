@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Drill : MonoBehaviour
 {
-
+	public Root root;
 
 	private void OnCollisionEnter2D(Collision2D collider)
 	{
@@ -12,7 +12,15 @@ public class Drill : MonoBehaviour
 
 		if (drillable)
 		{
+			root.Damage(15);
 			drillable.Drill();
+		}
+
+		WormCollision worm = collider.gameObject.GetComponent<WormCollision>();
+
+		if (worm)
+        {
+			worm.Die();
 		}
 	}
 
