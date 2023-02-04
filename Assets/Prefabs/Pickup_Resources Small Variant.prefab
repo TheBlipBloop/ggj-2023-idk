@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 251563250991143306, guid: 4640ca31e751bad46b2377b5f1af29e0, type: 3}
+      propertyPath: nutrientValue
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1471083237963265874, guid: 4640ca31e751bad46b2377b5f1af29e0, type: 3}
       propertyPath: m_Name
-      value: Pickup Small Variant
+      value: Pickup_Resources Small Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1471083237963265884, guid: 4640ca31e751bad46b2377b5f1af29e0, type: 3}
       propertyPath: nutrientValue

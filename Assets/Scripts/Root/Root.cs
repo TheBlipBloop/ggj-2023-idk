@@ -39,6 +39,11 @@ public class Root : MonoBehaviour
 
 	protected LinkedList<Vector2> rootPositions = new LinkedList<Vector2>();
 
+	[Header("Powerups")]
+
+	[SerializeField]
+	protected PowerupType activePowerup = PowerupType.None;
+
 	protected Vector2 mousePosition;
 
 	private Vector2 lastRecordedRootPosition;

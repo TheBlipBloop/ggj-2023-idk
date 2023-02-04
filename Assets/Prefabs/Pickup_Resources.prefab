@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1471083237963265886}
   - component: {fileID: 1471083237963265887}
-  - component: {fileID: 1471083237963265884}
   - component: {fileID: 1471083237963265885}
+  - component: {fileID: 251563250991143306}
   m_Layer: 0
-  m_Name: Pickup
+  m_Name: Pickup_Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1471083237963265884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471083237963265874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbe3de1970c801c092a409d0998320a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nutrientValue: 1
 --- !u!58 &1471083237963265885
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +121,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.75
+--- !u!114 &251563250991143306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471083237963265874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23b8bb3b65e84f8b87fe0ee5eb7d6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nutrientValue: 1
+  healthValue: 0
