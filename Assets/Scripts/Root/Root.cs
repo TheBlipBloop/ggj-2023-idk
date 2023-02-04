@@ -219,13 +219,6 @@ public class Root : MonoBehaviour
 	// Called every frame while something is colliding with this root
 	public virtual void OnCollideWith(RaycastHit2D collision)
 	{
-		// Testing behavior
-		if (collision.collider.gameObject == gameObject)
-		{
-			return;
-		}
-
-		Destroy(collision.collider.gameObject);
 	}
 	/*********************************************************************************************/
 	/** Placeholder UI */
