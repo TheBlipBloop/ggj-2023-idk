@@ -312,6 +312,11 @@ public class Root : MonoBehaviour
 		return -1;
 	}
 
+	public bool IsInvincible()
+	{
+		return FindPowerup(PowerupType.Invincibility) >= 0;
+	}
+
 	/*********************************************************************************************/
 	/** Root Positions */
 
