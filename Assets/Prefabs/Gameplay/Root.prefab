@@ -630,7 +630,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
@@ -685,7 +685,7 @@ MonoBehaviour:
   maxCollisionEventsPerFrame: 3
   maxCollisionSegments: 256
   collisionThickness: 0.3
-  debugCollision: 1
+  debugCollision: 0
 --- !u!50 &8527525119466467565
 Rigidbody2D:
   serializedVersion: 4

@@ -17,11 +17,22 @@ public class HUD : MonoBehaviour
 	[SerializeField]
 	protected Image nutrientIndicator;
 
+	[SerializeField]
+	protected float nutrientLowPct = 0.2f;
+
+	[SerializeField]
+	protected Image nutrientLowIndicator;
+
+	protected Color nutrientLowIndicatorStartColor;
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		player = FindObjectOfType<Root>();
+		nutrientLowIndicatorStartColor = nutrientLowIndicator.color;
+		nutrientLowIndicator.enabled = true;
+		nutrientLowIndicator.color = Color.clear;
 	}
 
 	// Update is called once per frame
@@ -29,6 +40,17 @@ public class HUD : MonoBehaviour
 	{
 		healthIndicator.fillAmount = player.GetHealthPct();
 		nutrientIndicator.fillAmount = player.GetNutrientsPct();
+
+		if (player.GetNutrientsPct() < nutrientLowPct)
+		{
+			nutrientLowIndicator.color = Color.Lerp(nutrientLowIndicator.color, nutrientLowIndicatorStartColor, Time.deltaTime);
+		}
+		else
+		{
+			Color colorInvis = new Color(nutrientLowIndicatorStartColor.r, nutrientLowIndicatorStartColor.g, nutrientLowIndicatorStartColor.b, 0f);
+			nutrientLowIndicator.color = Color.Lerp(nutrientLowIndicator.color, colorInvis, Time.deltaTime * 3f);
+
+		}
 
 		if (player.IsDead())
 		{
