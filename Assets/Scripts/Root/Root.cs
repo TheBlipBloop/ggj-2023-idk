@@ -74,7 +74,14 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected float shrinkPowerupThickness = 0.1f;
 
+	[SerializeField]
 	protected float invincibilityDeflectDuration = 3f;
+
+	[SerializeField]
+	protected Color invincibilityPowerupRootColor = new Color(0.75f, 0, 0.75f, 1f);
+
+	[SerializeField]
+	protected Color speedPowerupRootColor = Color.red;
 
 	protected Vector2 mousePosition;
 
@@ -291,15 +298,21 @@ public class Root : MonoBehaviour
 		{
 			originalMoveSpeed = baseMoveSpeed;
 			baseMoveSpeed *= 2f;
+			rootRenderer.SetColor(speedPowerupRootColor);
 		}
 		if (powerup == PowerupType.Shrink)
 		{
 			SetRootThickness(shrinkPowerupThickness);
 		}
+		if (powerup == PowerupType.Invincibility)
+		{
+			rootRenderer.SetColor(invincibilityPowerupRootColor);
+		}
 	}
 
 	protected void OnPowerupDeactivated(PowerupType powerup)
 	{
+		rootRenderer.ResetColor();
 		if (powerup == PowerupType.Drill)
 		{
 			drill.SetActive(false);
