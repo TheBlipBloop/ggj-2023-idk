@@ -12536,7 +12536,7 @@ GameObject:
   - component: {fileID: 1973641085}
   - component: {fileID: 1973641084}
   - component: {fileID: 1973641083}
-  - component: {fileID: 1973641082}
+  - component: {fileID: 1973641086}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -12544,19 +12544,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1973641082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973641081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3ec68522eeacb247acac58deb2d45cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bookWorm: {fileID: 1994221538}
 --- !u!61 &1973641083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12669,6 +12656,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973641086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973641081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27455d178f6d5ee40bc3b097f5b97335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookWorm: {fileID: 1994221538}
+  text: Am wormey
 --- !u!114 &1994221538 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3622212147414475393, guid: 215d97eb2e20af149b3f78bfd1251bf3, type: 3}

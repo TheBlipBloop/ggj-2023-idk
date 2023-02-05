@@ -45,7 +45,7 @@ public class WaterCollision : MonoBehaviour
 			mainCam.GetComponent<RootCamera>().enabled = false;
 			mainCam.GetComponent<CameraReturnToPlant>().enabled = true;
 			mainCam.GetComponent<CameraReturnToPlant>().moveToward(startTrans);
-			// PlayerPrefs.SetInt("Level " + (curLevel + 1), 1); // This line of code crashes unity I have no idea how or why
+			//PlayerPrefs.SetInt("Level " + (curLevel + 1), 1); // This line of code crashes unity I have no idea how or why
 		}
 	}
 }
