@@ -254,8 +254,8 @@ GameObject:
   - component: {fileID: 8527525118267618864}
   - component: {fileID: 8527525118267618865}
   - component: {fileID: 19387154}
-  - component: {fileID: 19387155}
-  m_Layer: 0
+  - component: {fileID: 2782902716410447477}
+  m_Layer: 8
   m_Name: Drill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,14 +269,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8527525118267618867}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8527525119466467552}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &8527525118267618865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: -968318809
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3739892fcd4e731f88ddefe7fbc1f930, type: 3}
   m_Color: {r: 0.39254874, g: 0.39254874, b: 0.39254874, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,8 +342,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 8527525119466467567}
---- !u!61 &19387155
-BoxCollider2D:
+  drillRenderer: {fileID: 8527525118267618865}
+  drillSprites:
+  - {fileID: 21300000, guid: 3739892fcd4e731f88ddefe7fbc1f930, type: 3}
+  - {fileID: 21300000, guid: 4b41aa539d705fb72b58d63f4c50ce80, type: 3}
+  - {fileID: 21300000, guid: 9dfb68d6f76be9ebb86f341228519e94, type: 3}
+  - {fileID: 21300000, guid: 11319c119127faa59a6206462aa64256, type: 3}
+  - {fileID: 21300000, guid: c8cac2c3aae223d1b8612087312153e3, type: 3}
+  - {fileID: 21300000, guid: 591942765a4afebed93433382ac70051, type: 3}
+  drillFrameInterval: 0.035
+--- !u!60 &2782902716410447477
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -374,19 +383,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 2.125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.85}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.59894586, y: 0.50255954}
+      - {x: -0.6227409, y: 0.4847144}
+      - {x: -0.00085338205, y: -1.0709841}
+      - {x: 0.011872515, y: -1.0497742}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8527525119123369770
 GameObject:
   m_ObjectHideFlags: 0
