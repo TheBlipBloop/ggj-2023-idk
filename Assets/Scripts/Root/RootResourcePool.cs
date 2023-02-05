@@ -34,8 +34,14 @@ public class RootResourcePool : MonoBehaviour
 		return amount > 0;
 	}
 
+	public float GetResourcesPct()
+	{
+		return amount / maxAmount;
+	}
+
 	protected void ClampAmount()
 	{
 		amount = Mathf.Clamp(amount, 0, maxAmount);
 	}
+
 }

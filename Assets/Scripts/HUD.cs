@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class HUD : MonoBehaviour
 
 	[SerializeField]
 	protected GameObject deathHUD;
+
+	[SerializeField]
+	protected Image healthIndicator;
+
+	[SerializeField]
+	protected Image nutrientIndicator;
 
 
 	// Start is called before the first frame update
@@ -20,6 +27,9 @@ public class HUD : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		healthIndicator.fillAmount = player.GetHealthPct();
+		nutrientIndicator.fillAmount = player.GetNutrientsPct();
+
 		if (player.IsDead())
 		{
 			deathHUD.SetActive(true);

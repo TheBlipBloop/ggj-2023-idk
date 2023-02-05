@@ -259,6 +259,11 @@ public class Root : MonoBehaviour
 		return nutrientPool.GetAmount();
 	}
 
+	public float GetNutrientsPct()
+	{
+		return nutrientPool.GetResourcesPct();
+	}
+
 	/*********************************************************************************************/
 	/** Health */
 
@@ -292,6 +297,11 @@ public class Root : MonoBehaviour
 	public bool IsDead()
 	{
 		return !IsAlive();
+	}
+
+	public float GetHealthPct()
+	{
+		return healthPool.GetResourcesPct();
 	}
 
 	/*********************************************************************************************/
@@ -416,7 +426,7 @@ public class Root : MonoBehaviour
 	}
 
 	/*********************************************************************************************/
-	/** Health */
+	/** Collision */
 
 	// Called every frame while something is colliding with this root
 	public virtual void OnCollideWith(RaycastHit2D collision)
@@ -445,11 +455,11 @@ public class Root : MonoBehaviour
 	/*********************************************************************************************/
 	/** Placeholder UI */
 
-	void OnGUI()
-	{
-		GUI.Label(new Rect(0, 0, 250f, 25f), "Health: " + healthPool.GetAmount());
-		GUI.Label(new Rect(0, 25f, 250f, 25f), "Nutrients: " + nutrientPool.GetAmount());
-	}
+	// void OnGUI()
+	// {
+	// 	GUI.Label(new Rect(0, 0, 250f, 25f), "Health: " + healthPool.GetAmount());
+	// 	GUI.Label(new Rect(0, 25f, 250f, 25f), "Nutrients: " + nutrientPool.GetAmount());
+	// }
 
 	/*********************************************************************************************/
 	/** God-class I hardly knew her! */
