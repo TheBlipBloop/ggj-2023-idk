@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevel: Root 1
-  fadeToBlackPrefab: {fileID: 7919297023806393608, guid: 7ef820b299227235cae0a9bb6e861cc5, type: 3}
+  fadePrefab: {fileID: 7919297023806393608, guid: 7ef820b299227235cae0a9bb6e861cc5, type: 3}
   root: {fileID: 0}
   mainCam: {fileID: 0}
   curLevel: 0

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterCollision : MonoBehaviour
 {
 	public string nextLevel = "Root 1";
+	public GameObject fadePrefab;
 
 	public Root root;
 	public Camera mainCam;
@@ -43,9 +45,15 @@ public class WaterCollision : MonoBehaviour
 		{
 			root.enabled = false;
 			mainCam.GetComponent<RootCamera>().enabled = false;
-			mainCam.GetComponent<CameraReturnToPlant>().enabled = true;
-			mainCam.GetComponent<CameraReturnToPlant>().moveToward(startTrans);
-			//PlayerPrefs.SetInt("Level " + (curLevel + 1), 1); // This line of code crashes unity I have no idea how or why
+			// mainCam.GetComponent<CameraReturnToPlant>().enabled = true;
+			// mainCam.GetComponent<CameraReturnToPlant>().moveToward(startTrans);
+			Instantiate(fadePrefab);
+			Invoke("LoadNextScene", 3f);
 		}
+	}
+
+	void LoadNextScene()
+	{
+		SceneManager.LoadSceneAsync(nextLevel, LoadSceneMode.Single);
 	}
 }
