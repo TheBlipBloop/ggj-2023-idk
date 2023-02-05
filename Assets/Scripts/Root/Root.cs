@@ -120,6 +120,8 @@ public class Root : MonoBehaviour
 	{
 		body.velocity = direction * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
 
+		Debug.Log(Map.GetSpeedScalar(transform.position));
+
 		if (Vector2.Distance(transform.position, lastRecordedRootPosition) > rootRecordPositionInterval)
 		{
 			rootPositions.AddFirst(transform.position);
