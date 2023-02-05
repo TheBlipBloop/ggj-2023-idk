@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class WormCollision : MonoBehaviour
 {
-	[SerializeField]
-	protected TrailRenderer wormRenderer;
+	public float damage = 25;
 
-	[SerializeField]
-	protected BoxCollider2D wormCollider;
+	public GameObject nutrientDrop;
 
-	// Start is called before the first frame update
-	void Start()
+	public void Die()
 	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		// wormCollider.transform.position = wormRenderer.bounds.center;
-		// wormCollider.size = wormRenderer.bounds.size;
+		Instantiate(nutrientDrop, this.transform.position, Quaternion.identity);
+		GameObject.Destroy(this.gameObject);
 	}
 }

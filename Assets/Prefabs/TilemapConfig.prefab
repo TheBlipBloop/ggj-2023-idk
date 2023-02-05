@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2227036509609651204
 MonoBehaviour:
@@ -82,7 +82,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b758fe73a30c53b44a864575b6874841, type: 2}
     - {fileID: 11400000, guid: 3f2ba533926848671901cd1e4d1da636, type: 2}
     - {fileID: 11400000, guid: 504f2c612acc21d40991e02cb8550e51, type: 2}
-    speedScalar: 0.25
+    speedScalar: 0.5
     damagePerSecond: 0
   - name: Sand
     tiles:
