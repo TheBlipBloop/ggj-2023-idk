@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WormCollision : MonoBehaviour
 {
+	public float damage = 25;
+
 	public GameObject nutrientDrop;
 
 	public void Die()
