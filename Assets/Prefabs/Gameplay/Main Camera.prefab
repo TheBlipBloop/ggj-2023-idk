@@ -65,10 +65,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0011428571
-    y: 0.0016051364
-    width: 0.9965714
-    height: 0.9951846
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 0}
-  speed: 1
+  speed: 3
 --- !u!114 &4998923525214780607
 MonoBehaviour:
   m_ObjectHideFlags: 0
