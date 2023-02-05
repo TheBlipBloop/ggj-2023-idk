@@ -61,6 +61,14 @@ public class Root : MonoBehaviour
 	[SerializeField]
 	protected RootResourcePool healthPool;
 
+	[SerializeField]
+	protected float damageCooldown = 0.75f;
+
+	[SerializeField]
+	protected float vulnerableLength = 5f;
+
+	private float lastDamageTime = float.NegativeInfinity;
+
 	protected LinkedList<Vector2> rootPositions = new LinkedList<Vector2>();
 
 	[Header("Powerups")]
@@ -198,6 +206,31 @@ public class Root : MonoBehaviour
 		return totalLength;
 	}
 
+	protected float GetLengthToPointOnRoot(Vector2 point, float tolerance = 1f)
+	{
+		float totalLength = 0;
+		float maxLength = Vector2.Distance(transform.position, point);
+		float distance = 0;
+		LinkedListNode<Vector2> node = rootPositions.First;
+
+		while (node.Next != null)
+		{
+			distance = Vector2.Distance(node.Value, point);
+			if (distance < tolerance)
+			{
+				return totalLength;
+			}
+			if (distance > maxLength)
+			{
+				return Mathf.Infinity; // Not on root within tolerance
+			}
+			totalLength += Vector2.Distance(node.Value, node.Next.Value);
+			node = node.Next;
+		}
+
+		return Mathf.Infinity;// Not on root within tolerance
+	}
+
 	private void UpdateMousePosition()
 	{
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -229,9 +262,16 @@ public class Root : MonoBehaviour
 	/*********************************************************************************************/
 	/** Health */
 
-	public void Damage(float damage)
+	public bool Damage(float damage)
 	{
+		if (Time.time < lastDamageTime + damageCooldown)
+		{
+			return false;
+		}
+
 		healthPool.RemoveResources(damage);
+		lastDamageTime = Time.time;
+		return true;
 	}
 
 	public void Heal(float health)
@@ -392,7 +432,14 @@ public class Root : MonoBehaviour
 
 		if (wormCol != null && !invincible)
 		{
-			Damage(10 * Time.deltaTime);
+			worm.Deflect(collision.point, 1f);
+
+			bool canDamageRootSection = GetLengthToPointOnRoot(collision.point) < vulnerableLength;
+			Debug.Log(GetLengthToPointOnRoot(collision.point));
+			if (canDamageRootSection)
+			{
+				Damage(wormCol.damage);
+			}
 		}
 	}
 	/*********************************************************************************************/

@@ -13,8 +13,10 @@ public class LineRendererOutline : MonoBehaviour
 	[SerializeField]
 	protected float outlineWidth = 0.4f;
 
+	[SerializeField]
+	protected int offset;
+
 	protected Vector3[] positionPool = new Vector3[256];
-	// protected int positions
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,8 +28,14 @@ public class LineRendererOutline : MonoBehaviour
 	void LateUpdate()
 	{
 		int positions = target.positionCount;
+		int offsetPositions = target.positionCount - offset;
 
-		outline.positionCount = positions;
+		if (offsetPositions <= 0)
+		{
+			return;
+		}
+
+		outline.positionCount = offsetPositions;
 
 		if (positions >= positionPool.Length)
 		{
