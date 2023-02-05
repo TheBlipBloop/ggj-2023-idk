@@ -5583,10 +5583,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.62319684
     y: 0
-    width: 0.99999994
-    height: 1
+    width: 0.8488813
+    height: 0.73686546
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -12758,6 +12758,10 @@ PrefabInstance:
     - target: {fileID: 8715995392820807237, guid: 926b3ae519339294a85ca00d5c6c8d7c, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715995392820807238, guid: 926b3ae519339294a85ca00d5c6c8d7c, type: 3}
+      propertyPath: nextLevel
+      value: Root 5
       objectReference: {fileID: 0}
     - target: {fileID: 8715995392820807239, guid: 926b3ae519339294a85ca00d5c6c8d7c, type: 3}
       propertyPath: m_RootOrder
@@ -105076,7 +105080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021580914279793405, guid: 87094a377b05a353292c4b45b0f34810, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

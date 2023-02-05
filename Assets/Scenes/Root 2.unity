@@ -43474,6 +43474,10 @@ PrefabInstance:
       propertyPath: m_IncludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8715995392820807238, guid: 926b3ae519339294a85ca00d5c6c8d7c, type: 3}
+      propertyPath: nextLevel
+      value: Root 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8715995392820807239, guid: 926b3ae519339294a85ca00d5c6c8d7c, type: 3}
       propertyPath: m_RootOrder
       value: 2
