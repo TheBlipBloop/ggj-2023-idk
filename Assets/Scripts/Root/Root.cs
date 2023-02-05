@@ -149,7 +149,7 @@ public class Root : MonoBehaviour
 		Vector2 direction = body.velocity.normalized;
 		if (body.velocity.sqrMagnitude > 0.1)
 		{
-			drill.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f);
+			drill.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f);
 		}
 
 
@@ -376,14 +376,18 @@ public class Root : MonoBehaviour
 
 	protected void OnPowerupDeactivated(PowerupType powerup)
 	{
-		rootRenderer.ResetColor();
 		if (powerup == PowerupType.Drill)
 		{
 			drill.SetActive(false);
 		}
 		if (powerup == PowerupType.Speed)
 		{
+			rootRenderer.ResetColor();
 			baseMoveSpeed = originalMoveSpeed;
+		}
+		if (powerup == PowerupType.Invincibility)
+		{
+			rootRenderer.ResetColor();
 		}
 		if (powerup == PowerupType.Shrink)
 		{
