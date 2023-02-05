@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8715995392820807240
 SpriteRenderer:
@@ -98,8 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409e3ab555f73a44ea96103afe83c72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevel: Root 1
+  fadeToBlackPrefab: {fileID: 7919297023806393608, guid: 7ef820b299227235cae0a9bb6e861cc5, type: 3}
   root: {fileID: 0}
   mainCam: {fileID: 0}
+  curLevel: 0
 --- !u!61 &8715995392820807237
 BoxCollider2D:
   m_ObjectHideFlags: 0
