@@ -459,7 +459,6 @@ public class Root : MonoBehaviour
 			worm.Deflect(collision.point, 1f);
 
 			bool canDamageRootSection = GetLengthToPointOnRoot(collision.point) < vulnerableLength;
-			Debug.Log(GetLengthToPointOnRoot(collision.point));
 			if (canDamageRootSection)
 			{
 				Damage(wormCol.damage);
