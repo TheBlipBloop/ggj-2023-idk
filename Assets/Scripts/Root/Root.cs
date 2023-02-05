@@ -453,7 +453,7 @@ public class Root : MonoBehaviour
 		WormCollision wormCol = collision.collider.GetComponent<WormCollision>();
 		bool invincible = IsInvincible();
 
-		if (invincible)
+		if (invincible && worm != null)
 		{
 			worm.Deflect(collision.point, invincibilityDeflectDuration);
 		}

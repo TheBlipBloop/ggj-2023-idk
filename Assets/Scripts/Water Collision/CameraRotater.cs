@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CameraRotater : MonoBehaviour
 {
@@ -27,15 +26,9 @@ public class CameraRotater : MonoBehaviour
 		{
 			if (!loadedNextLevel)
 			{
-				Invoke("LoadNextScene", 3f);
 				loadedNextLevel = true;
 			}
 			this.enabled = false;
 		}
-	}
-
-	void LoadNextScene()
-	{
-		SceneManager.LoadSceneAsync(FindObjectOfType<WaterCollision>().nextLevel, LoadSceneMode.Single);
 	}
 }
