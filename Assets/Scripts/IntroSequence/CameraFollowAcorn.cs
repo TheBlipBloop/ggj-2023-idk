@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class CameraFollowAcorn : MonoBehaviour
 {
-    public Camera mainCam;
-    public float fallSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public Camera mainCam;
+	public float fallSpeed;
+	public float startTime = 4;
+	// Start is called before the first frame update
+	void Start()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-        mainCam.gameObject.transform.Translate(new Vector3(fallSpeed*Time.deltaTime, 0, 0), Space.World);
-    }
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		if (Time.time < startTime)
+		{
+			return;
+		}
+		mainCam.gameObject.transform.Translate(new Vector3(fallSpeed * Time.deltaTime, 0, 0), Space.World);
+	}
 }

@@ -6,22 +6,34 @@ public class WaterCollision : MonoBehaviour
 {
 	public string nextLevel = "Root 1";
 
-	public GameObject root;
+	public Root root;
 	public Camera mainCam;
 	public int curLevel;
 	private Vector3 startTrans;
 	// Start is called before the first frame update
 	void Start()
 	{
-		root = FindObjectOfType<Root>().gameObject;
+		root = FindObjectOfType<Root>();
 		mainCam = Camera.main;
 
-		startTrans = root.transform.position;
+		if (root)
+		{
+			startTrans = root.transform.position;
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		// awful hack for intro sequence
+		if (root == null)
+		{
+			root = FindObjectOfType<Root>();
+		}
+		else
+		{
+			startTrans = root.transform.position;
+		}
 
 	}
 
@@ -29,7 +41,7 @@ public class WaterCollision : MonoBehaviour
 	{
 		if (collider.gameObject.GetComponent<Root>() && collider.gameObject.GetComponent<Root>().IsAlive())
 		{
-			root.GetComponent<Root>().enabled = false;
+			root.enabled = false;
 			mainCam.GetComponent<RootCamera>().enabled = false;
 			mainCam.GetComponent<CameraReturnToPlant>().enabled = true;
 			mainCam.GetComponent<CameraReturnToPlant>().moveToward(startTrans);

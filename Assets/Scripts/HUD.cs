@@ -38,6 +38,13 @@ public class HUD : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		// awful hack for intro sequence
+		if (player == null)
+		{
+			player = FindObjectOfType<Root>();
+			return;
+		}
+
 		healthIndicator.fillAmount = player.GetHealthPct();
 		nutrientIndicator.fillAmount = player.GetNutrientsPct();
 
