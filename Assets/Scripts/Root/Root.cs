@@ -97,6 +97,8 @@ public class Root : MonoBehaviour
 
 	private float originalMoveSpeed;
 
+	protected float HACKY_initialGrowthTimer = 1f;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -115,6 +117,18 @@ public class Root : MonoBehaviour
 		// hacky bad
 		if (IsDead())
 		{
+			return;
+		}
+
+		// HACK
+		if (HACKY_initialGrowthTimer >= 0)
+		{
+			Grow(Vector2.right);
+			HACKY_initialGrowthTimer -= Time.deltaTime;
+			if (rootLineRenderer.positionCount > 0)
+			{
+				rootLineRenderer.SetPosition(rootLineRenderer.positionCount - 1, transform.position);
+			}
 			return;
 		}
 

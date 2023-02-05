@@ -13,7 +13,10 @@ public class RootCamera : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		if (root == null)
+		{
+			root = FindObjectOfType<Root>();
+		}
 	}
 
 	// Update is called once per frame

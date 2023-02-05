@@ -525,12 +525,12 @@ LineRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.21730098
-        inSlope: -12.85565
-        outSlope: -12.85565
+        value: 0.31645203
+        inSlope: -16.928932
+        outSlope: -16.928932
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.22814633
+        inWeight: 0.439795
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -630,7 +630,7 @@ Transform:
   - {fileID: 880997834}
   - {fileID: 1526377719}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8527525119466467567
 MonoBehaviour:
@@ -648,7 +648,7 @@ MonoBehaviour:
   collider: {fileID: 8527525119466467564}
   rootLineRenderer: {fileID: 8527525119123369750}
   rootRenderer: {fileID: 8527525119123369751}
-  baseMoveSpeed: 6
+  baseMoveSpeed: 4
   defaultThickness: 0.6
   rootRecordPositionInterval: 0.25
   nutrientLosePerSecond: 0.05
@@ -680,7 +680,7 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 129
-  maxCollisionDistance: 10
+  maxCollisionDistance: 22
   collisionSegmentInterval: 5
   maxCollisionEventsPerFrame: 3
   maxCollisionSegments: 256
