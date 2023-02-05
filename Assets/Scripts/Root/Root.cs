@@ -164,8 +164,6 @@ public class Root : MonoBehaviour
 	{
 		body.velocity = direction * baseMoveSpeed * Map.GetSpeedScalar(transform.position);
 
-		Debug.Log(Map.GetSpeedScalar(transform.position));
-
 		if (Vector2.Distance(transform.position, lastRecordedRootPosition) > rootRecordPositionInterval)
 		{
 			rootPositions.AddFirst(transform.position);
@@ -473,7 +471,7 @@ public class Root : MonoBehaviour
 
 	protected void SetRootThickness(float newThickness)
 	{
-		collider.radius = newThickness;
+		collider.radius = newThickness / 2f;
 		rootRenderer.SetThickness(newThickness);
 	}
 }
