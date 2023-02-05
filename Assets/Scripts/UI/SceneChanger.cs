@@ -7,22 +7,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public Button button;
-    public TextMeshProUGUI text;
-    // Start is called before the first frame update
-    void Start()
-    {
-        button.onClick.AddListener(changeScene);
-    }
+	public Button button;
+	public TextMeshProUGUI text;
+	public string targetScene = "TargetScene";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    void changeScene()
-    {
-        SceneManager.LoadScene(text.text);
-    }
+	// Start is called before the first frame update
+	void Awake()
+	{
+		button.onClick.AddListener(changeScene);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+	void changeScene()
+	{
+		SceneManager.LoadScene(targetScene);
+	}
 }
