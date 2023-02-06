@@ -29148,7 +29148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 536213694}
   endColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeSpeed: 3
+  fadeSpeed: 0.8
 --- !u!114 &571952713 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3622212147414475393, guid: 215d97eb2e20af149b3f78bfd1251bf3, type: 3}
@@ -30057,11 +30057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6838816220234487223, guid: 215d97eb2e20af149b3f78bfd1251bf3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -125.03583
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6838816220234487223, guid: 215d97eb2e20af149b3f78bfd1251bf3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -92
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 6838816220234487223, guid: 215d97eb2e20af149b3f78bfd1251bf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
