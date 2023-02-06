@@ -16,7 +16,7 @@ public class CameraFollowAcorn : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.time < startTime)
+		if (Time.timeSinceLevelLoad < startTime)
 		{
 			return;
 		}
