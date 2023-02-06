@@ -660,19 +660,19 @@ MonoBehaviour:
 
     <i>Fiah Doer</i>
 
-    Programming
+    Lead
+    Programmer
 
-    <i>Ben
-    Seckeler</i>
+    <i>Ben Seckeler</i>
 
-    Programming
+    Programmer
 
     <i>Charles Scott</i>
 
     Font
 
-    DP Comic
-    by Comicman38'
+    DP
+    Comic by Comicman38'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5ecf19dad401710593ae81a8e2721c0, type: 2}
   m_sharedMaterial: {fileID: 7982913250573283072, guid: b5ecf19dad401710593ae81a8e2721c0, type: 2}
