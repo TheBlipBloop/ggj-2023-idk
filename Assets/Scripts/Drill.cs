@@ -36,7 +36,7 @@ public class Drill : MonoBehaviour
 
 		if (drillable)
 		{
-			root.Damage(15);
+			root.Damage(3);
 			drillable.Drill();
 		}
 
